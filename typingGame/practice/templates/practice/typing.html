@@ -1,0 +1,122 @@
+{% extends "practice/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="container">
+    <h2 class="title"> {{ title }} </h2><span class="hidden">{{ docId }}</span>
+    <audio id="audioPlayer" loop>
+        <source src="{% static 'practice/MeditationDeThais.mp3' %}" type="audio/mp3">
+    </audio>    
+    <div class="scoreboard">
+        <div>
+            <div class="ops"><img height="30" src="{% static 'practice/images/sound.png' %}" onclick="toggleAudio()"></div>
+        </div>
+        <div>
+            <div class="ops" id="start">Go!</div>
+        </div>
+        <div>
+            Time: <span id="timer">00:00</span>
+        </div>
+        <div>
+            Counts: <span id="typed">0</span>/<span id="total">0</span>
+        </div>
+        <div>
+            Error: <span id="error">0</span>
+        </div>
+        <div>
+            <div class="ops" id="cancel">Cancel</div>
+        </div>
+    </div>
+</div>
+<div class='container' id='sandbox'>
+    <div id='line'></div>
+</div>
+
+<div class="container">
+    <div id='content'>        
+    </div>
+</div>
+<div id="keyboard" class="container">
+    <div class="keyboard">
+        <div class="row">
+            <span class="key">~`</span>
+            <span class="key">1</span>
+            <span class="key">2</span>
+            <span class="key">3</span>
+            <span class="key">4</span>
+            <span class="key">5</span>
+            <span class="key">6</span>
+            <span class="key">7</span>
+            <span class="key">8</span>
+            <span class="key">9</span>
+            <span class="key">0</span>
+            <span class="key">-_</span>
+            <span class="key">+=</span>
+            <span class="key" style="width: 100px; padding: .2rem">Backspace</span>
+        </div>
+        <div class="row">
+            <span class="key"></span>
+            <span class="key">Q</span>
+            <span class="key">W</span>
+            <span class="key">E</span>
+            <span class="key">R</span>
+            <span class="key">T</span>
+            <span class="key">Y</span>
+            <span class="key">U</span>
+            <span class="key">I</span>
+            <span class="key">O</span>
+            <span class="key">P</span>
+            <span class="key">{[</span>
+            <span class="key">}]</span>
+            <span class="key">|\</span>
+        </div>
+        <div class="row">
+            <span class="key"></span>
+            <span class="key">A</span>
+            <span class="key">S</span>
+            <span class="key">D</span>
+            <span class="key">F</span>
+            <span class="key">G</span>
+            <span class="key">H</span>
+            <span class="key">J</span>
+            <span class="key">K</span>
+            <span class="key">L</span>
+            <span class="key">:;</span>
+            <span class="key">"'</span>
+            <span class="key" style="width: 70px; padding: .2rem">enter</span>
+        </div>
+        <div class="row">
+            <span class="key" style="width: 70px; padding: .2rem">Shift</span>
+            <span class="key">Z</span>
+            <span class="key">X</span>
+            <span class="key">C</span>
+            <span class="key">V</span>
+            <span class="key">B</span>
+            <span class="key">N</span>
+            <span class="key">M</span>
+            <span class="key"><,</span>
+            <span class="key">>.</span>
+            <span class="key">?/</span>
+            <span class="key" style="width: 70px; padding: .2rem">Shift</span>
+        </div>
+        <div class="row">
+            <span class="key"style="width: 400px; padding: .2rem">Space</span>
+        </div>
+    </div>
+</div>   
+
+<script>
+    function toggleAudio() {
+        var audio = document.getElementById('audioPlayer');
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
+</script>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="{% static 'practice/test.js' %}"></script>
+{% endblock %}

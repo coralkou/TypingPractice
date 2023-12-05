@@ -1,0 +1,16 @@
+{% extends "practice/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="container">
+<div class="cover-page">
+    <h1 id="title" class="clickering">Typing Game</h1>
+    <p style="color:white;font-size:1.4rem;text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);">Learn whatever article or lyric you like with peaceful background music!</p>
+    <div class="shortcut">
+        <a href="{% url 'list' type='myList' %}" class="cs_button">Choose Document</a>
+        <a href="{% url 'add' %}" class="cs_button">Customize Practice</a>
+    </div>
+</div>
+</div>
+    
+{% endblock %}

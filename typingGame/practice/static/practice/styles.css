@@ -1,0 +1,198 @@
+.current {
+    font-size:40px;
+    font-weight:800;
+    color:red;
+    text-decoration: underline;
+}
+.correct{
+    font-size:40px;
+    font-weight:800;
+    color:green;
+}
+
+.letter{
+    font-size:40px;
+    font-weight:800;
+    color: rgba(67, 63, 63, 0.5);
+    text-decoration: underline;
+}
+
+#sandbox {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align:center;
+}
+
+p {
+    font-size: larger;
+}
+.ops {
+    color:red;
+    cursor:pointer;
+    font-weight: bold;    
+}
+
+.ops:hover {
+    text-decoration: underline;
+}
+
+button {
+    background: rgba(114, 255, 89, 0.7);
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 0;
+    font: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #000000; /* Link color */
+    border-radius: 0.5rem;
+}
+
+button:hover {
+    text-decoration: none; /* Remove underline on hover */
+    background-color: rgba(92, 219, 70, 0.7);
+   
+}
+
+.hidden {
+    display:none;
+}
+
+.link {
+    text-decoration: underline; 
+    color:white; 
+}
+
+
+#content {
+    min-width: 150px;
+    min-height: 150px;
+    border: 1px solid #ccc;
+    overflow: auto;
+    text-align:center;
+}
+.cover-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('../practice/images/TreePainting.png') center/cover no-repeat;
+}
+.list-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: url('../practice/images/TreePainting.png') center/cover no-repeat;
+}
+.shortcut {
+    display: flex;
+    gap: 20px;
+}
+
+.cs_button {
+    padding: 10px 10px;
+    font-size: 1.0em;
+    font-family: Arial;
+    font-weight: bold;
+    background-color: rgb(207, 136, 55);
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cs_button:hover {
+    background-color: #a06645;
+    color: #fff;
+}
+
+@keyframes clicker {
+    0% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 0.4;
+    }
+}
+
+.docList {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    width: 90%;
+    margin-left:5%;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+/* Style for each clickable item */
+.item {
+    width:80%;
+    padding: 2px;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(255, 122, 89, .5);
+    color:white;
+    font-weight: bold;
+    font-size:1.5rem;
+}
+
+.item:hover {
+    background-color: rgba(67, 63, 63, 0.5);
+}
+
+h1 {
+    font-style: oblique;
+    font-size: 4em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.clickering {
+    animation: clicker 0.8s infinite alternate;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.key {
+    background-color: rgb(99, 99, 103);
+    border: none;
+    display: inline-block;
+    padding: .5rem 0.5rem;
+    margin: .3rem;
+    font-size: 1.3rem;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: .5rem;
+    text-align: center;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    font-size: 16px;
+}
+
+.scoreboard div {
+        flex: 1;
+        padding: 2px;
+}
+
+

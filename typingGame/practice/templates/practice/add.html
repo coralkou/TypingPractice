@@ -1,0 +1,40 @@
+{% extends "practice/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="container">
+<form action="{% url 'add' %}" method="post">
+    {% csrf_token %}
+    <label for="lettersInput">Enter the document title:</label>
+    <input type="text" name="name" pattern="[A-Za-z ]+" size="100" required value="{{ title|safe }}">
+    <br>
+    <label for="textarea">Type or copy your text (max 1500 characters):</label>
+    <br>
+    <textarea id="textarea" name="content" rows="15" cols="150" minlength = "200" maxlength="1500" oninput="updateCharCount()" required>{{ content|safe }}</textarea>
+    <div id="charCount">Characters remaining: <span id="remainingChars">{{ left }}</span></div>
+    <button type="submit">Save to My list</button>
+</form>
+</div>
+
+<script>
+    function updateCharCount() {
+        const textarea = document.getElementById('textarea');
+        const remainingCharsSpan = document.getElementById('remainingChars');
+        const charCountDiv = document.getElementById('charCount');
+
+        const remainingChars = 1500 - textarea.value.length;
+        remainingCharsSpan.textContent = remainingChars;
+
+        if (remainingChars < 0) {
+            charCountDiv.classList.add('limit-exceeded');
+        } else {
+            charCountDiv.classList.remove('limit-exceeded');
+        }
+    }
+</script>
+    
+{% endblock %}
+
+
+
+        

@@ -1,0 +1,29 @@
+{% extends "practice/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="container">
+<span class="hidden">{{type}}</span>
+<div class="list-page">
+<ul class="docList">
+    {% for item in docs %}
+    <li id="{{ item.id }}">
+        <span class="item">{{ item.docName }}</span></a>
+        {% if type == 'myList'%}
+            <button>Edit</button>
+        {% endif %}
+    </li>
+    {% empty %}
+    <div>
+        <h3 style="color:white">There is nothing in the library so far. <br>
+        <a class="link" href="{% url 'add' %}">Let's create your very first piece.</a></h3>
+    </div>
+    {% endfor %}
+</ul>
+</div>
+    
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'practice/list.js' %}"></script>
+{% endblock %}
