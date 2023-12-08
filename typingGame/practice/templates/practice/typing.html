@@ -2,11 +2,13 @@
 {% load static %}
 
 {% block body %}
-<div class="container">
-    <h2 class="title"> {{ title }} </h2><span class="hidden">{{ docId }}</span>
+<div class="container" style="background-color:rgb(255,222,173);">
+    <h2 id="title" class="title">{{ title }}</h2><span class="hidden">{{ docId }}</span>
     <audio id="audioPlayer" loop>
         <source src="{% static 'practice/MeditationDeThais.mp3' %}" type="audio/mp3">
-    </audio>    
+    </audio>
+    <audio id="errorSound" src="{% static 'practice/error.mp3' %}" preload="auto"></audio>
+    <audio id="finishSound" src="{% static 'practice/complete.mp3' %}" preload="auto"></audio>    
     <div class="scoreboard">
         <div>
             <div class="ops"><img height="30" src="{% static 'practice/images/sound.png' %}" onclick="toggleAudio()"></div>
@@ -28,7 +30,9 @@
         </div>
     </div>
 </div>
+<br>
 <div class='container' id='sandbox'>
+    <h3 id="endMessage"><h3>
     <div id='line'></div>
 </div>
 
@@ -39,68 +43,68 @@
 <div id="keyboard" class="container">
     <div class="keyboard">
         <div class="row">
-            <span class="key">~`</span>
-            <span class="key">1</span>
-            <span class="key">2</span>
-            <span class="key">3</span>
-            <span class="key">4</span>
-            <span class="key">5</span>
-            <span class="key">6</span>
-            <span class="key">7</span>
-            <span class="key">8</span>
-            <span class="key">9</span>
-            <span class="key">0</span>
-            <span class="key">-_</span>
-            <span class="key">+=</span>
+            <span id="96" class="key">~`</span>
+            <span id="49" class="key">1</span>
+            <span id="50" class="key">2</span>
+            <span id="51" class="key">3</span>
+            <span id="52" class="key">4</span>
+            <span id="53" class="key">5</span>
+            <span id="54" class="key">6</span>
+            <span id="55" class="key">7</span>
+            <span id="56" class="key">8</span>
+            <span id="57" class="key">9</span>
+            <span id="48" class="key">0</span>
+            <span id="45" class="key">-_</span>
+            <span id="61" class="key">+=</span>
             <span class="key" style="width: 100px; padding: .2rem">Backspace</span>
         </div>
         <div class="row">
             <span class="key"></span>
-            <span class="key">Q</span>
-            <span class="key">W</span>
-            <span class="key">E</span>
-            <span class="key">R</span>
-            <span class="key">T</span>
-            <span class="key">Y</span>
-            <span class="key">U</span>
-            <span class="key">I</span>
-            <span class="key">O</span>
-            <span class="key">P</span>
-            <span class="key">{[</span>
-            <span class="key">}]</span>
-            <span class="key">|\</span>
+            <span id="113" class="key">Q</span>
+            <span id="119" class="key">W</span>
+            <span id="101" class="key">E</span>
+            <span id="114" class="key">R</span>
+            <span id="116" class="key">T</span>
+            <span id="121" class="key">Y</span>
+            <span id="117" class="key">U</span>
+            <span id="105" class="key">I</span>
+            <span id="111" class="key">O</span>
+            <span id="112" class="key">P</span>
+            <span id="91" class="key">{[</span>
+            <span id="93" class="key">}]</span>
+            <span id="92" class="key">|\</span>
         </div>
         <div class="row">
             <span class="key"></span>
-            <span class="key">A</span>
-            <span class="key">S</span>
-            <span class="key">D</span>
-            <span class="key">F</span>
-            <span class="key">G</span>
-            <span class="key">H</span>
-            <span class="key">J</span>
-            <span class="key">K</span>
-            <span class="key">L</span>
-            <span class="key">:;</span>
-            <span class="key">"'</span>
-            <span class="key" style="width: 70px; padding: .2rem">enter</span>
+            <span id="97" class="key">A</span>
+            <span id="115" class="key">S</span>
+            <span id="100" class="key">D</span>
+            <span id="102" class="key">F</span>
+            <span id="103" class="key">G</span>
+            <span id="104" class="key">H</span>
+            <span id="106" class="key">J</span>
+            <span id="107" class="key">K</span>
+            <span id="108" class="key">L</span>
+            <span id="59" class="key">:;</span>
+            <span id="39" class="key">"'</span>
+            <span id="enter" class="key" style="width: 70px; padding: .2rem">enter</span>
         </div>
         <div class="row">
-            <span class="key" style="width: 70px; padding: .2rem">Shift</span>
-            <span class="key">Z</span>
-            <span class="key">X</span>
-            <span class="key">C</span>
-            <span class="key">V</span>
-            <span class="key">B</span>
-            <span class="key">N</span>
-            <span class="key">M</span>
-            <span class="key"><,</span>
-            <span class="key">>.</span>
-            <span class="key">?/</span>
-            <span class="key" style="width: 70px; padding: .2rem">Shift</span>
+            <span id="shift1" class="key" style="width: 70px; padding: .2rem">Shift</span>
+            <span id="122" class="key">Z</span>
+            <span id="120" class="key">X</span>
+            <span id="99" class="key">C</span>
+            <span id="118" class="key">V</span>
+            <span id="98" class="key">B</span>
+            <span id="110" class="key">N</span>
+            <span id="109" class="key">M</span>
+            <span id="44" class="key"><,</span>
+            <span id="46" class="key">>.</span>
+            <span id="47" class="key">?/</span>
+            <span id="shift2" class="key" style="width: 70px; padding: .2rem">Shift</span>
         </div>
         <div class="row">
-            <span class="key"style="width: 400px; padding: .2rem">Space</span>
+            <span id="32" class="key"style="width: 400px; padding: .2rem">Space</span>
         </div>
     </div>
 </div>   
@@ -118,5 +122,5 @@
 {% endblock %}
 
 {% block script %}
-<script type="text/javascript" src="{% static 'practice/test.js' %}"></script>
+<script type="text/javascript" src="{% static 'practice/typing.js' %}"></script>
 {% endblock %}

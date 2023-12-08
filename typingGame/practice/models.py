@@ -16,8 +16,16 @@ class Doc(models.Model):
 class Score(models.Model):
     user = models.ForeignKey("User",  on_delete=models.CASCADE, related_name="scores")
     userId = models.IntegerField(null=False, blank=False)
-    docId = models.IntegerField(null=False, blank=False)
+    title = models.CharField(max_length=255)
     timeStamp = models.DateTimeField(auto_now_add=True)    
     speed = models.IntegerField(null=False, blank=False)
     accuracy = models.IntegerField(null=False, blank=False)
+
+    def serialize(self):
+        return{
+            "title": self.title,
+            "timeStamp": self.timeStamp.strftime("%b %d %Y, %I:%M %p"),
+            "speed": self.speed,
+            "accuracy": self.accuracy
+        }
 

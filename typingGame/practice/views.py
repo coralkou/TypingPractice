@@ -76,8 +76,62 @@ def edit(request, doc_id):
             "left": left
     })
 
+def profile(request):
+    userId = request.user.id
+    created = Doc.objects.filter(userId=userId)
+    typed = Score.objects.filter(userId=userId)
+    Ct_Created = len(created)
+    Ct_Typed = len(typed)
+    titles = [x.title for x in typed]
+    titles.sort()
+    distinct = []
+    if titles != []:
+        for t in titles:
+            if distinct == [] or t != distinct[-1]:
+                distinct.append(t)
+        speedRecord = max([y.speed for y in typed])
+        accuracyRecord = max([y.accuracy for y in typed])
+    else:
+        speedRecord = "?"
+        accuracyRecord = "?"
+    return render(request, "practice/profile.html", {
+        "created": Ct_Created,
+        "typed":Ct_Typed,
+        "titles" : distinct,
+        "highestSpeed": speedRecord,
+        "highestAccuracy": accuracyRecord
+    })
+
 
 #####API calls########################################################################################
+@csrf_exempt
+def recordScore(request):
+    if request.method != "POST":
+        return JsonResponse({"error": "POST request required."}, status=400)
+    data = json.loads(request.body)
+    new_score = Score(
+        user = request.user,
+        userId = request.user.id,
+        title = data.get("title"),
+        speed = data.get("speed"),        
+        accuracy = data.get("accuracy")
+    )
+    new_score.save()
+    return HttpResponse(status=204)
+
+    
+
+
+def obtainScore(request, title):
+    if request.method == 'GET':
+        if title == "All":
+            scores = Score.objects.filter(user=request.user)
+        else:
+            scores = Score.objects.filter(user=request.user, title=title)
+    scores = scores.order_by("-timeStamp").all()
+    return JsonResponse([score.serialize() for score in scores], safe=False)
+
+
 def read(request, doc_id):
     if request.method == 'GET':
         item = Doc.objects.get(pk=doc_id)
@@ -98,6 +152,8 @@ def read(request, doc_id):
                 continue
             else:
                 end += 1
+        if start != end:
+            lines.append(content[start:end])
         return JsonResponse(lines, safe=False)
 
 

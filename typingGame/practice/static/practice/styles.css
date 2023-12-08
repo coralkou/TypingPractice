@@ -1,3 +1,66 @@
+.cs-line {
+    text-decoration: line-through;
+}
+    
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ddd;
+}
+
+/* Header cell styling */
+th {
+    background-color: #f2f2f2;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Data cell styling */
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Alternating row background color */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover effect for better user experience */
+tbody tr:hover {
+    background-color: #e0e0e0;
+}
+
+select {
+    width: 300px; /* Set the desired width */
+    font-size: 16px; /* Adjust font size */
+    text-align: center;
+    padding:5px;
+}
+
+h2 {
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+.preNum {
+    font-size:20px;
+    font-weight: bold;
+    color:rgb(82, 78, 78)
+}
+
+.scoreNum {
+    font-size:18px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    float: right;
+}
+
 .current {
     font-size:40px;
     font-weight:800;
@@ -37,15 +100,18 @@ p {
 }
 
 button {
-    background: rgba(114, 255, 89, 0.7);
-    border: 1px solid #ccc;
-    padding: 5px;
-    margin: 0;
-    font: 1.2rem;
+    padding: 10px 10px;
+    font-size: 1.0em;
+    font-family: Arial;
     font-weight: bold;
-    cursor: pointer;
-    color: #000000; /* Link color */
+    background-color: rgb(207, 136, 55);
+    color: #fff;
+    border: none;
     border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    opacity: 80%;
+    margin-left:25px;
 }
 
 button:hover {
@@ -101,6 +167,7 @@ button:hover {
     border-radius: 0.5rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    opacity: 80%;
 }
 
 .cs_button:hover {
@@ -143,14 +210,14 @@ li {
     padding: 2px;
     text-align: center;
     cursor: pointer;
-    background: rgba(255, 122, 89, .5);
+    background: rgba(67, 63, 63, 0.5);
     color:white;
     font-weight: bold;
     font-size:1.5rem;
 }
 
 .item:hover {
-    background-color: rgba(67, 63, 63, 0.5);
+    background-color: rgba(107, 200, 14, 0.5);
 }
 
 h1 {
@@ -182,6 +249,12 @@ h1 {
     height: 50px;
     border-radius: .5rem;
     text-align: center;
+}
+
+.nextKey {
+    background-color: rgb(250, 254, 14);
+    color:black;
+    font-weight: bold;
 }
 
 .scoreboard {
