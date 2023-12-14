@@ -181,18 +181,18 @@ function add_graph(){
 function ToggleView(event){
     const item = event.target;
     if (item.id == "showGraph"){
-        console.log("switched to graph view");
+        //console.log("switched to graph view");
         document.querySelector('#scoreTable').style.display = 'none';
         document.querySelector('#scoreGraph').style.display = 'block';
         document.querySelector('#showGraph').style.display = 'none';
         document.querySelector('#showTable').style.display = 'block';
         if (!plotted){
             add_graph();
-            console.log("graph added");
+            //console.log("graph added");
         }
     }
     if (item.id == "showTable"){
-        console.log("switched to table view");
+        //console.log("switched to table view");
         document.querySelector('#scoreTable').style.display = 'block';
         document.querySelector('#scoreGraph').style.display = 'none';
         document.querySelector('#showGraph').style.display = 'block';

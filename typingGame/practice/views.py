@@ -117,9 +117,7 @@ def recordScore(request):
         accuracy = data.get("accuracy")
     )
     new_score.save()
-    return HttpResponse(status=204)
-
-    
+    return HttpResponse(status=204)    
 
 
 def obtainScore(request, title):

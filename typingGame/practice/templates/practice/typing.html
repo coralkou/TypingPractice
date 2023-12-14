@@ -8,7 +8,8 @@
         <source src="{% static 'practice/MeditationDeThais.mp3' %}" type="audio/mp3">
     </audio>
     <audio id="errorSound" src="{% static 'practice/error.mp3' %}" preload="auto"></audio>
-    <audio id="finishSound" src="{% static 'practice/complete.mp3' %}" preload="auto"></audio>    
+    <audio id="finishSound" src="{% static 'practice/complete.mp3' %}" preload="auto"></audio>
+    {% if user.is_authenticated %}    
     <div class="scoreboard">
         <div>
             <div class="ops"><img height="30" src="{% static 'practice/images/sound.png' %}" onclick="toggleAudio()"></div>
@@ -29,6 +30,7 @@
             <div class="ops" id="cancel">Cancel</div>
         </div>
     </div>
+    {% endif %}
 </div>
 <br>
 <div class='container' id='sandbox'>

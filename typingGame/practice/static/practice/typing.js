@@ -202,7 +202,7 @@ function load_view(){
     const content_section = document.querySelector('#content');
     document.querySelector('#sandbox').style.display='none';
     const totalItem = document.querySelector('#total');
-    var row_index = 1;
+    var rowIndex = 1;
     var cur_count = 0;
     docId = document.querySelector('.hidden').innerHTML;
     fetch('/read/'+ docId)
@@ -212,8 +212,8 @@ function load_view(){
         lines.forEach(function(line){
             const row = document.createElement('p');
             row.textContent = line;
-            row.id = "row" + String(row_index);
-            row_index++;
+            row.id = "row" + String(rowIndex);
+            rowIndex++;
             cur_count += line.length;
             content_section.append(row);
         })
