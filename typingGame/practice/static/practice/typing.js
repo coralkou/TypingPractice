@@ -43,6 +43,9 @@ document.addEventListener('click', event => {
             remain = 80;
             typed = 0;
             index = 0;
+            error = 0;
+            document.querySelector('#error').innerHTML = error;
+            document.querySelector('#typed').innerHTML = typed;
             var lineItem = document.querySelector('#line');
             lineItem.innerHTML = '';
             startTyping();
@@ -194,7 +197,7 @@ function recordScore(){
             title:title
         })
     });
-    console.log("Score recorded successfully");
+    //console.log("Score recorded successfully");
 }
 
 function load_view(){
@@ -208,7 +211,7 @@ function load_view(){
     fetch('/read/'+ docId)
     .then(response => response.json())
     .then(lines => {
-        console.log(lines);
+        //console.log(lines);
         lines.forEach(function(line){
             const row = document.createElement('p');
             row.textContent = line;
